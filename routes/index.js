@@ -8,5 +8,11 @@ var auth = require('../controllers/AuthController');
 //router.get('/', users.index);
 router.get('/', auth.login);
 /* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
+router.get('/contact', function(req, res, next) {
+  res.render('contact');
+});
 
 module.exports = router;
