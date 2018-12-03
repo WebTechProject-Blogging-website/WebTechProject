@@ -7,7 +7,7 @@ var auth = require('../controllers/AuthController');
 /** */
 //router.get('/', users.index);
 /* GET home page. */
-router.get('/', auth.isAuthenticated, function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index');
 });
 router.get('/contact',auth.isAuthenticated, function(req, res, next) {
