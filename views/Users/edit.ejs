@@ -10,9 +10,12 @@
                             <h1>Edit User:</h1>
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <a href="/users/view/<%- username['username'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View User</a>
+                        </div>
                     </div>
             </header>
-    <form action="/users/edit/<%= id %>" method="POST" id="edit">
+    <form action="/users/edit/<%= username %>" method="POST" id="edit">
     <div class="row mt-2">
         <div class="col-sm-6">
             <h4>Username: </h4>
@@ -26,7 +29,9 @@
             <h4>Password: </h4>
         </div>
         <div class="col-sm-6">
-            <p>><%- username["password"] %></p>
+        <div class="form-group">
+                <input type="text" class="form-control" id="password" name="password" value="<%- username['password'] %>">
+        </div>
         </div>
     </div>
     <div class="row mt-2">
@@ -37,6 +42,7 @@
             <p><%- username["access"] %></p>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary">Update Account</button>
     </form>
     </div>
 </div>

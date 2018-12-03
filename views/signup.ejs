@@ -14,15 +14,15 @@
   <div class="container-fluid">
   <div class="jumbotron mt-4">
       <div class="header">
-          <h2>Sign In:</h2>
+          <h2>Sign Up:</h2>
         </div>
     <% if(typeof message != 'undefined'){ %>
-        <div class="alert alert-danger alert-dismissible">
+        <div class="alert alert-success alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Error!<%= message %></strong> 
+                <strong><%= message %></strong> 
         </div>
     <% } %>
-        <form action="/users/login" method="POST" id="login">
+        <form action="/users/signup" method="POST" id="login">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter email">
@@ -32,11 +32,15 @@
                   <label for="exampleInputPassword1">Password</label>
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
                 <div class="form-group">
-                  <p>Not a User? Sign Up below.</p>
-                  <a href="/users/signup" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Sign Up</a>
+                        <label for="exampleInputPassword1">Access</label>
+                        <input class="form-control" type="text" name="access" value="admin" readonly>
                 </div>
+                <div class="form-group">
+                    <p>Got an account. Log In!</p>
+                    <a href="/users/login" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Log In</a>
+                  </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
         </form>
       </div>
       </div>
