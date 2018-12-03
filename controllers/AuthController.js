@@ -1,5 +1,7 @@
 var Users= require('../models/users');
-
+/**
+ * Login Page
+ */
 exports.login= async function(req,res){
     if(req.session.user!=null){
         user=req.session.user;
@@ -7,7 +9,10 @@ exports.login= async function(req,res){
     }
     res.render('login');
 }
-
+/**
+ * Authenticate User
+ * 
+ */
 exports.authenticate=  async function(req,res){
     if(!req.body.username || !req.body.password){
        res.render('login', {message: "Please enter both id and password"});
@@ -17,7 +22,7 @@ exports.authenticate=  async function(req,res){
         user.password=req.body.password
         Users.findOne({ 'username': user.username , 'password': user.password}, function(err, user) {
             if (err) throw err;
-            console.log("here")
+            console.log(user+"Here")
             if(user!=null){
             req.session.user = user;
             // show the one user
@@ -30,14 +35,20 @@ exports.authenticate=  async function(req,res){
        
     }
 }
-
+/**
+ * Logout,  destory session.
+ */
 exports.logout=async function(req,res){
     if(req.session.user!=null){
         req.session.destroy();
     }
     res.render('login');
 }
-
+/**
+ * 
+ * Autheticate User on each page.
+ * 
+ */
 exports.isAuthenticated= async function (req, res, next){
     if(req.session.user!=null){
         next();
