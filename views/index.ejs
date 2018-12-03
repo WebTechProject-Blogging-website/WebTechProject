@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+
+<% var header = './header'; %>
+<%- include(header) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="display-1 text-center">Welcome to PantherBlog!</h1>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="">Hello old and new bloggers! Do you want to share your personal story? Review restauraunts? Suggest best travel spots? 
+            PantherBlog is here for you. Feel free share what is on your minds.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <h1 class="display-4">Features</h1>
+              <p class="features">Add, edit, and delete posts
+              </p>
+              <p class="features">Stay up-to-date with the trendiest posts
+              </p>
+              <p class="features">Like someone's post? Give them comments and suggestions
+              </p>
+              <p class="features">Share!
+                </p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4">Are you Ready to Blog?</h1>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+
+  </div>
+
+  <% var footer = './footer'; %>
+  <%- include(footer) %>

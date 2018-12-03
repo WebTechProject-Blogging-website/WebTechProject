@@ -6,7 +6,12 @@ var auth = require('../controllers/AuthController');
 
 /** */
 //router.get('/', users.index);
-router.get('/', auth.login);
 /* GET home page. */
+router.get('/', auth.isAuthenticated, function(req, res, next) {
+  res.render('index');
+});
+router.get('/contact',auth.isAuthenticated, function(req, res, next) {
+  res.render('contact');
+});
 
 module.exports = router;
