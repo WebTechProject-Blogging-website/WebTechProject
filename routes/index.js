@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var auth = require('../controllers/AuthController');
 
+/* GET users listing. */
+
+/** */
+//router.get('/', users.index);
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
+});
+router.get('/contact', function(req, res, next) {
+  res.render('contact');
 });
 
 module.exports = router;

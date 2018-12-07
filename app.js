@@ -14,7 +14,7 @@ var app = express();// app
 
 var upload = multer(); 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/Blog';
+var mongoDB = 'mongodb://127.0.0.1/blog';
 mongoose.connect(mongoDB);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
@@ -33,10 +33,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret: "keyboard cat"}));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
+//app.use(express.static(__dirname + '/public'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

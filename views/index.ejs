@@ -1,11 +1,68 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+
+	
+<% var header = './headersignin'; %>
+<%- include(header) %>
+  
+      
+<div class="splash-container">
+   <div class="splash">
+      <h1 class="splash-head">Welcome to PantherBlog!</h1>
+      <p class="splash-subhead">
+         Read blogs from sports to food, travel, and more.
+      </p>
+      <p>
+         <a href="/users/signup" class="pure-button pure-button-primary">Get Started</a>
+      </p>
+   </div>
+</div>
+<div class="content-wrapper">
+   <div class="content">
+    <hr>
+      <h2 class="content-head is-center">SHARE YOUR PERSONAL STORY!</h2>
+      <div class="row">
+         <div class="col-md-6">
+            <h1 class="display-4 text-center">Viewers</h1>    <hr><hr>
+
+            <p class="features">Read blogs from sports to food, travel, and more.</p>
+            <p>Features include</p><br>
+            <ul>
+               <li>
+                  Stay up-to-date with the trendiest posts
+               </li>
+               <li>
+                  Like someone's post? Give them comments and suggestions
+               </li>
+            </ul>
+            </p>
+            <a href="#" class="btn btn-primary">View Popular Blogs</a>    <hr><hr>
+
+         </div>
+         <div class="col-md-6">
+            <h1 class="display-4 text-center">Bloggers</h1>    <hr><hr>
+
+            <p class="">Hello old and new bloggers! Do you want to share your personal story? Review restauraunts? Suggest best travel spots? 
+               PantherBlog is here for you. Feel free share what is on your minds.
+            </p>
+            <p class="features">Features include
+            <ul>
+               <li>
+                  Everything Viwers get
+               </li>
+               <li>
+                  Add, edit, and delete posts
+               </li>
+            </ul>
+            
+            <a href="/users/signup" class="btn btn-primary">Are you Ready to Blog?</a>     <hr><hr>
+
+         </div> 
+
+         </div>
+
+
+	
+    
+      
+
+  <% var footer = './footer'; %>
+  <%- include(footer) %>
