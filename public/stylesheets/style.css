@@ -3,3 +3,34 @@
     background-color: white;
     margin-right: 1em;
 }
+.navbar {
+    background-color: rgba(2, 4, 87, 0.842);
+}
+
+
+body {
+    background-image: url("/images/paper.jpg");
+    background-size: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.intro {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: bolder;
+}
+
+.homebutton {
+    width: 350px;
+    margin: auto;
+    padding: 0.5em;
+    display: block;
+    
+}
+#getstartedbtn {
+    color: white;
+   background-color:rgb(2, 4, 82);
+}
+
+
