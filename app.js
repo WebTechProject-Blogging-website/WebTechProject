@@ -14,7 +14,7 @@ var app = express();// app
 
 var upload = multer(); 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/blog';
+var mongoDB = 'mongodb://127.0.0.1/Blog';
 mongoose.connect(mongoDB);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;

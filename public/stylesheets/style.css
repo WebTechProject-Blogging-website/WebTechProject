@@ -1,5 +1,8 @@
+:root {
+    --main-bg-color: rgba(2, 4, 87); 
+}
 #logo {
-    width: 50PX;
+    width: 50px;
     background-color: white;
     margin-right: 1em;
 }
@@ -9,7 +12,7 @@
 
 
 body {
-    background-image: url("/images/paper.jpg");
+  
     background-size: 100%;
     line-height: 1.7em;
     color: #454f50;
@@ -24,7 +27,7 @@ body {
 }
 
 .homebutton {
-    width: 350px;
+    width: 100%;
     margin: auto;
     padding: 0.5em;
     display: block;
@@ -32,7 +35,7 @@ body {
 }
 #bluebtn {
     color: white;
-   background-color:rgb(2, 4, 82);
+   background-color: var(--main-bg-color);
 }
 
 * {
@@ -57,7 +60,12 @@ body {
     max-width: 500px;
     }
 
+.header {
+    color: var(--main-bg-color);
+}
 
+    
+}
 /*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
@@ -83,7 +91,7 @@ label {
 
 .mybtn{
     border-radius:50px;
-    width: 300px;
+    width: 100%;
     }
 
     
