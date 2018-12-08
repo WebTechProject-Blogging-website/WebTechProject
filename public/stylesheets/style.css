@@ -1,5 +1,8 @@
+:root {
+    --main-bg-color: rgba(2, 4, 87); 
+}
 #logo {
-    width: 50PX;
+    width: 100%;
     background-color: white;
     margin-right: 1em;
 }
@@ -24,7 +27,7 @@ body {
 }
 
 .homebutton {
-    width: 350px;
+    width: 100%;
     margin: auto;
     padding: 0.5em;
     display: block;
@@ -83,7 +86,7 @@ label {
 
 .mybtn{
     border-radius:50px;
-    width: 300px;
+    width: 100%;
     }
 
     
