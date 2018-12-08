@@ -1,5 +1,6 @@
 var Blogs= require('../models/blogs');
-
+var CommentsController= require('../controllers/CommentsController');
+var async=require('async');   
 exports.index = async function(req,res){
     Blogs.find({},function(err, output) {
         if (err) throw err;
@@ -10,13 +11,34 @@ exports.index = async function(req,res){
       });
 }
 
-exports.view =async function(req,res){
-    blog_id=req.params.blog_id;
+function viewOne(blog_id,callback){
     Blogs.findOne({ '_id': blog_id}, function(err, output) {
         if (err) throw err;
-        console.log(output);
+        callback(err,output);
+      });
+}
+
+exports.view =async function(req,res){
+    blog_id=req.params.blog_id;
+    async.parallel({
+        blog: async.apply(viewOne,blog_id),
+        comments: async.apply(CommentsController.viewAll, blog_id)
+    },function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        if((req.params.comment!='undefined') & (req.params.comment=="success")){
+            res.render('Blogs/view',{
+                blog: result["blog"],
+                comments: result["comments"],
+                user: req.session.user._id,
+                message: "Comment Successful"
+            })
+        }
         res.render('Blogs/view',{
-            blog: output
+            blog: result["blog"],
+            comments: result["comments"],
+            user: req.session.user._id,
+            message: "Add a comment!"
         })
       });
 }
@@ -37,6 +59,8 @@ exports.updateBlog = async function(req,res){
     blog_id=req.params.blog_id;
     blog=req.body;
     // find all athletes that play tennis
+    if((blog["user_id"]==req.session.user._id)||(req.session.user.access=="admin"))
+    {
     Blogs.update(
         { _id: blog_id },
         {
@@ -52,6 +76,11 @@ exports.updateBlog = async function(req,res){
         // show the one user
         res.redirect('/blogs/view/'+blog_id);
      });
+    }else{
+        res.render('error',{
+            message: "Don't edit what's not yours!"
+        })
+    }
 }
 
 exports.add = async function(req,res){
@@ -80,7 +109,31 @@ exports.createBlog = async function(req,res){
     });
 }
 
+exports.delete = async function(req,res){
+    id=req.params.id;
+    Blogs.find({},function(err, output) {
+        if (err) throw err;
+        console.log(output);
+        if(req.params.success=="success"){
+            message="Successfully deleted record:"+id;
+            res.render('Blogs/delete',{
+                records: output,
+                message:message
+            });
+        }
+        res.render('Blogs/delete',{
+            records: output
+        })
+      });
+}
 
+exports.deleteBlog = async function(req,res){
+    id=req.params.id;
+    Blogs.deleteOne({'_id':id},function(err,output){
+        if(err) throw err;
+        res.redirect('/Blogs/delete/'+id+'/success#success')
+    })
+}
 /*
 exports.updateBlog =async function(req,res){
     console.log("blog");
