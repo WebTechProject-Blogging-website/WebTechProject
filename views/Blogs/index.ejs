@@ -30,6 +30,9 @@
                                   <th class="th-sm">Location
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                   </th>
+                                  <th class="th-sm">Actions
+                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                                  </th>
                                 </tr>
                         </thead>
                 <tbody>
@@ -39,6 +42,18 @@
                         <td><%= records[arr_key]["title"] %></td>
                         <td><%= records[arr_key]["date_time"] %></td>
                         <td><%= records[arr_key]["location"] %></td>
+                        <td>
+                          <div class="row mt-2">
+                              <div class="col">
+                          <a class="btn btn-primary btn-block" href='/Blogs/view/<%= records[arr_key]["id"] %>' role="button">View</a>
+                                  </div>
+                          </div>
+                          <div class="row mt-2">
+                              <div class="col">
+                          <a class="btn btn-primary btn-block" href='/Blogs/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
+                          </div>
+                          </div>
+                      </td>
                     </tr>
             <% } %>
             
