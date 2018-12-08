@@ -21,7 +21,9 @@
             <h4>Username: </h4>
         </div>
         <div class="col-sm-6">
-            <p><%- username["_id"] %></p>
+        <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" value="<%- username['id'] %>" readonly>
+        </div>
         </div>
     </div>
     <div class="row mt-2">

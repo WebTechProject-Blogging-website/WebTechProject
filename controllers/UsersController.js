@@ -15,6 +15,29 @@ exports.view =async function(req,res){
       });
    
 }
+exports.admin = async function(req,res){
+    id=req.params.id;
+    Users.find({},function(err, output) {
+        if (err) throw err;
+        console.log(output);
+        if(req.params.success=="success"){
+            message="Successfully deleted user:"+id;
+            res.render('Users/delete',{
+                records: output,
+                message:message
+            });
+        }
+        if(req.body.message!=null){
+            res.render('Users/delete',{
+                records: output,
+                message: req.body.message
+            });
+        }
+        res.render('Users/delete',{
+            records: output
+        })
+      });
+}
 
 exports.createUser = async function(req,res){
     username=req.body.username;
@@ -25,7 +48,7 @@ exports.createUser = async function(req,res){
             message:"Please enter all required parameters"
         });
     }
-    Users.create({username: username, password: password,access: access}, function(err,result){
+    Users.create({_id: username, password: password,access: "user"}, function(err,result){
         if(err==null){
             err="Successfully created user: "+username;
             //mongoose.connection.close();
@@ -54,11 +77,10 @@ exports.edit= async function(req,res){
 
 exports.updateUser =async function(req,res){
     console.log("user");
-    username=req.session.user.username;
+    username=req.body.username;
     password=req.body.password;
-    // find all athletes that play tennis
     Users.update(
-        { username: username },
+        { _id: username },
         {
           $set: {
             password: password
@@ -76,4 +98,65 @@ exports.updateUser =async function(req,res){
 }
 exports.signup = async function(req,res){
     res.render('signup');
+}
+
+exports.addAdmin = async function(req,res){
+    console.log("user");
+    username=req.params.id;
+    Users.update(
+        { _id: username },
+        {
+          $set: {
+            access: "admin"
+            // Mongoose will add `updatedAt`
+          }
+        }
+     , function(err, user) {
+        if (err) throw err;
+        // show the one user
+        //username=req.session.user._id;
+        req.body.message="Admin added "+username;
+        console.log(username);
+        exports.admin(req,res);
+     });
+}
+
+exports.removeAdmin = async function(req,res){
+    username=req.params.id;
+    Users.update(
+        { _id: username },
+        {
+          $set: {
+            access: "user"
+            // Mongoose will add `updatedAt`
+          }
+        }
+     , function(err, user) {
+        if (err) throw err;
+        // show the one user
+        //username=req.session.user._id;
+        req.body.message="Admin removed "+username;
+        console.log(username);
+        exports.admin(req,res);
+     });
+}
+
+exports.delete= async function(req,res){
+    username=req.params.id;
+    req.params.success="not-success";
+    if(username==req.session.user._id){
+        req.body.message="You can't delete yourself, Lol.";
+        exports.admin(req,res);
+    }else{
+    Users.deleteOne(
+        { _id: username }
+     , function(err, user) {
+        if (err) throw err;
+        // show the one user
+        //username=req.session.user._id;
+        req.body.message="Deleted User: "+username;
+        console.log(username);
+        exports.admin(req,res);
+     });
+    }
 }

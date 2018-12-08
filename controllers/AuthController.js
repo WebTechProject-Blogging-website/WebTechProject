@@ -25,6 +25,7 @@ exports.authenticate=  async function(req,res){
             console.log(user+"Here")
             if(user!=null){
             req.session.user = user;
+            req.app.locals.user=req.session.user;
             req.session.user.username = user._id;
             // show the one user
             console.log(user);
@@ -42,6 +43,7 @@ exports.authenticate=  async function(req,res){
 exports.logout=async function(req,res){
     if(req.session.user!=null){
         req.session.destroy();
+        delete req.app.locals.user;
     }
     res.render('login');
 }
@@ -56,6 +58,37 @@ exports.isAuthenticated= async function (req, res, next){
     }
     else{
         res.render('login',{
+            message: "Access Denied"
+        });
+    }
+}
+/**
+ * Check if authorized
+ * 
+ */
+
+exports.isAuthorized = async function(req,res,next){
+    if((req.session.user.access=="admin") || (req.session.user._id==req.params.username)){
+        next();
+    }
+    else
+    {
+        res.render('error',{
+            message: "Access Denied"
+        });
+    }
+}
+/**
+ * Check if admin
+ * 
+ */
+
+exports.isAdmin= async function (req,res,next){
+    if(req.session.user.access=="admin"){
+        next();
+    }
+    else{
+        res.render('error',{
             message: "Access Denied"
         });
     }

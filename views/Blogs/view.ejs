@@ -1,6 +1,6 @@
 <% var header = '../headersignout'; %>
 <%- include(header) %>
-        
+    
 <div class="container-fluid mt-3">
     <div class="jumbotron">
             <header>
@@ -14,6 +14,7 @@
                                 <a href='/blogs/edit/<%- blog["id"] %>' class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit Blog</a>
                         </div>
                     </div>
+                    
             </header>
     <div class="row mt-2">
         <div class="col-sm-6">
@@ -42,7 +43,73 @@
         </div>
     </div>
     </div>
-</div>
+<div class="jumbotron mt-2">
+    <div class="header">
+       <h4> Comments Section:</h4>
+    </div>
+    <% colorScheme= "bg-dark text-white" %>
+    <% for (comment in comments){ %>
+        <% currComment=comments[comment] %>
+    <div class='p-3 mb-2 <%- colorScheme %>'>
+    <div class="row mt-2">
+            <div class="col-sm-6">
+                <b><%- currComment["title"] %></b>
+            </div>
+            <div class="col-sm-6">
+                <b><%- currComment["user_id"] %></b>
+            </div>
+    </div>
+    <div class="row mt-2">
+            <div class="col-sm-6">
+                <i><%- currComment["date_time"] %></i>
+            </div>
+    </div>
+    <div class="row mt-2">
+            <div class="col-sm-6">
+                <p><%- currComment["text"] %></p>
+            </div>
+    </div>
+    </div>
+    <% if(colorScheme=="bg-dark text-white"){ %>
+        <%  colorScheme="bg-white text-dark"; %>
+        <% }else{ %>
+            <%  colorScheme="bg-dark text-white";%>
+            <%  }  %>
 
+            <%      }  %>
+            <% if(typeof message != 'undefined'){ %>
+                <div class="alert alert-success alert-dismissible mt-4" id="success">
+                        <a href="#success" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong><%= message %></strong> 
+                </div>
+            <% } %>
+<div class="header mt-4">
+    <h4>Add a comment:</h4>
+</div>
+<form action='/comments/add/<%= blog["id"]  %>' method="post" name="addComment" id="addComment" class="mt-4">
+        <div class="form-group">
+                <label for="exampleInputEmail1">Your Name</label>
+                <input type="text" class="form-control" id="username" name="username" value="<%= user %>" aria-describedby="emailHelp" readonly>
+                <small id="emailHelp" class="form-text text-muted">Can't be changed..</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="title" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Text</label>
+                <input type="text" class="form-control" id="text" name="text" placeholder="text" required>
+              </div>
+              <div class="form-group">
+                      <label for="exampleInputPassword1">Current Time</label>
+                      <input class="form-control" type="datetime" name="date" id="date" readonly>
+              </div>
+              <div class="col-md-12 text-center ">
+              <button type="submit" class="btn btn-block mybtn tx-tfm" id="bluebtn">Add Comment</button>
+              </div>
+</form>
+</div>
+</div>
+<script src="/javascripts/metaEditBlog.js"></script>
 <% var footer = '../footer'; %>
 <%- include(footer) %>
