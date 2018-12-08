@@ -7,7 +7,7 @@
     margin-right: 1em;
 }
 .navbar {
-    background-color: rgba(2, 4, 87, 0.842);
+    background-color: rgba(2, 3, 87, 0.904);
 }
 
 
@@ -18,7 +18,7 @@ body {
     color: #454f50;
     font-size: 13px;
     padding-bottom:4.2rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .intro {
@@ -28,7 +28,7 @@ body {
 }
 
 .homebutton {
-    width: 100%;
+    width: 75%;
     margin: auto;
     padding: 0.5em;
     display: block;
@@ -36,7 +36,12 @@ body {
 }
 #bluebtn {
     color: white;
-   background-color: var(--main-bg-color);
+    background-color: var(--main-bg-color);
+
+}
+
+#bluebtn:hover{
+    background-color: rgb(7, 9, 145);
 }
 
 * {
@@ -84,7 +89,15 @@ body {
 }
 .header {
     color: var(--main-bg-color);
+    font-family: 'Kaushan Script', cursive;
 }
+
+#example {
+    background-color: white;
+    color: #111;
+    width: 100%;
+}
+#example
 /*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
