@@ -2,16 +2,17 @@
 <%- include(header) %>
 <script src="/javascripts/toDataTable.js"></script>
 
-  <div class="container-fluid white">
-
-        <h1 class="header">Create a Blog:</h1>
-       
-    <% if(typeof message != 'undefined'){ %>
-        <div class="alert alert-success alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong><%= message %></strong> 
-        </div>
-    <% } %>
+<div class="container-fluid">
+        <div class="row">
+        <div class="col-md-12">
+                <h1 class="header">Create a new blog post:</h1>
+             
+                <% if(typeof message != 'undefined'){ %>
+                        <div class="alert alert-success alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong><%= message %></strong> 
+                        </div>
+                <% } %>
                 <!--
                         user_id: String,
                         //category: [String],
@@ -21,42 +22,57 @@
                         date_time: Date,
                         signature: String,
                 -->
-        <form name="addBlog" action="/blogs/add" method="POST" id="login" onsubmit="return validateForm()">
-                <div class="form-group">
-                    <label for="category">Your User Account</label>
-                    <input type="text" class="form-control" id="user_id" name="user_id" value="<%= username %>" readonly>
-                </div>
-                <div class="form-group">
-                  <label for="category">Title</label>
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-                </div>
-                <div class="form-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Your Blog</span>
-                </div>
-                    <textarea class="form-control" aria-label="With textarea" id="text" name="text"></textarea>
-                </div>
-                <div class="form-group">
-                        <label for="location">location</label>
-                        <input class="form-control" type="text" id="location" name="location" value="Browser Blocking!" readonly>
-                </div>
-                <div class="form-group">
-                        <label for="date">Date</label>
-                        <input class="form-control" type="datetime" id="date" name="date" readonly>
-                </div>
-                <div class="form-group">
-                        <label for="signature">Signature</label>
-                        <input class="form-control" type="text" id="signature" name="signature">
-                </div>
-                <div class="form-group">
-                        <label for="imgupload">Upload Images</label><br>
-                        <input id="imgupload" type="file" accept="image/*" multiple image="image"/> 
-                        <img ng-repeat="img" ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
-                </div> 
-                <button type="submit" class="btn btn-primary">Create Blog</button>
-        </form>
-      </div>
-      </div>
+                        <form name="addBlog" action="/blogs/add" method="POST" id="login" onsubmit="return validateForm()">
+                                <div class="blogform"> 
+                                <div class="column-left">
+                                        <div class="form-group">
+                                        <label for="category">User Account: <%= username %></label>
+                                       </div>
+                                        <div class="form-group">
+                                                <div class="input-group-prepend">
+                                                        <span class="input-group-text">Post Title</span>
+                                                </div>
+                                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                                        </div>
+                                        <div class="form-group">
+                                        <div class="input-group-prepend">
+                                                <span class="input-group-text">Content</span>
+                                        </div>
+                                        <textarea class="form-control"  rows="8" aria-label="With textarea" id="text" name="text" placeholder="Today's post is about..." ></textarea>
+                                        </div>
+                                </div>
+                                 <div class="column-right">
+                              
+                                        <div class="form-group">
+                                                <label for="location">Location:</label>
+                                                <input class="form-control" type="text" id="location" name="location" value="Browser Blocking!" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="date">Date:</label>
+                                                <input class="form-control" type="datetime" id="date" name="date" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                                <div class="input-group-prepend">
+                                                                <span class="input-group-text">Signature</span>
+                                                 </div>
+        
+                                                <input class="form-control" type="text" id="signature" name="signature" placeholder="Signature">
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="imgupload">Upload Images</label><br>
+                                                <input id="imgupload" type="file" accept="image/*" multiple image="image"/> 
+                                                <img ng-repeat="img" ng-show="image" ng-src="{{image.url}}" type="{{image.file.type}}" />
+                                        </div> 
+                                      
+                                         <button type="submit" class="btn" id="bluebtn">Publish Post</button>              
+                                </div>
+                                </div>
+                                
+                        </form>
+                
+        </div>
+</div>
+</div>
       <script src="/javascripts/metaBlog.js"></script>
 <% var footer = '../footer'; %>
 <%- include(footer) %>
