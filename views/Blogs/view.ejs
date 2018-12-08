@@ -7,43 +7,40 @@
                     <div class="page-header">
                         <div class="row mt-6">
                             <div class="col-sm-6">
-                            <h1>Edit User:</h1>
+                            <h1>View Blog:</h1>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <a href="/users/view/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">View User</a>
+                                <a href='/blogs/edit/<%- blog["id"] %>' class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit Blog</a>
                         </div>
                     </div>
             </header>
-    <form action="/users/edit/<%= username['_id'] %>" method="POST" id="edit">
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Username: </h4>
+            <p><%- blog["title"] %></p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-12">
+            <p><%- blog["text"] %></p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-2">
+            <h4>Author: </h4>
         </div>
         <div class="col-sm-6">
-            <p><%- username["_id"] %></p>
+            <p><%- blog["user_id"] %></p>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Password: </h4>
+            <h4>Location: </h4>
         </div>
         <div class="col-sm-6">
-        <div class="form-group">
-                <input type="text" class="form-control" id="password" name="password" value="<%- username['password'] %>">
-        </div>
+            <p><%- blog["location"] %></p>
         </div>
     </div>
-    <div class="row mt-2">
-        <div class="col-sm-6">
-            <h4>Access: </h4>
-        </div>
-        <div class="col-sm-6">
-            <p><%- username["access"] %></p>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Update Account</button>
-    </form>
     </div>
 </div>
 

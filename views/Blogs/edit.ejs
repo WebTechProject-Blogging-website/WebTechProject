@@ -5,7 +5,7 @@
   <div class="container-fluid">
   <div class="jumbotron mt-4">
       <div class="header">
-          <h2>Create a Blog:</h2>
+          <h2>Edit Blog:</h2>
         </div>
     <% if(typeof message != 'undefined'){ %>
         <div class="alert alert-success alert-dismissible">
@@ -22,37 +22,37 @@
                         date_time: Date,
                         signature: String,
                 -->
-        <form name="addBlog" action="/blogs/add" method="POST" id="login" onsubmit="return validateForm()">
+        <form name="editBlog" action='/blogs/edit/<%- blog["id"] %>' method="POST" id="editBlog" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="category">Your User Account</label>
-                    <input type="text" class="form-control" id="user_id" name="user_id" value="<%= username %>" readonly>
+                    <input type="text" class="form-control" id="user_id" name="user_id" value='<%- blog["user_id"] %>' readonly>
                 </div>
                 <div class="form-group">
                   <label for="category">Title</label>
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                  <input type="text" class="form-control" id="title" name="title" value='<%- blog["title"] %>' placeholder="Title">
                 </div>
                 <div class="form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Your Blog</span>
                 </div>
-                    <textarea class="form-control" aria-label="With textarea" id="text" name="text"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" id="text" name="text"><%- blog["text"] %></textarea>
                 </div>
                 <div class="form-group">
-                        <label for="location">location</label>
-                        <input class="form-control" type="text" id="location" name="location" value="Browser Blocking!" readonly>
+                        <label for="location">Location</label>
+                        <input class="form-control" type="text" id="location" name="location" value='<%- blog["location"] %>' readonly>
                 </div>
                 <div class="form-group">
-                        <label for="date">Date</label>
+                        <label for="date">Date<small> &nbsp;&nbsp; Last edit date: <%- blog["date_time"] %></small></label>
                         <input class="form-control" type="datetime" id="date" name="date" readonly>
                 </div>
                 <div class="form-group">
                         <label for="signature">Signature</label>
-                        <input class="form-control" type="text" id="signature" name="signature">
+                        <input class="form-control" type="text" id="signature" name="signature" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Create Blog</button>
+                <button type="submit" class="btn btn-primary">Edit Blog</button><small>&nbsp;&nbsp;Please sign before editing</small>
         </form>
       </div>
       </div>
-      <script src="/javascripts/metaBlog.js"></script>
+<script src="/javascripts/metaEditBlog.js"></script>
 <% var footer = '../footer'; %>
 <%- include(footer) %>

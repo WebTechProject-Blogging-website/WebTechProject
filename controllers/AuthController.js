@@ -5,7 +5,7 @@ var Users= require('../models/users');
 exports.login= async function(req,res){
     if(req.session.user!=null){
         user=req.session.user;
-        res.redirect('/Users/view/'+user.username);
+        res.redirect('/Users/view/'+user._id);
     }
     res.render('login');
 }
@@ -20,14 +20,15 @@ exports.authenticate=  async function(req,res){
         user={};
         user.username=req.body.username
         user.password=req.body.password
-        Users.findOne({ 'username': user.username , 'password': user.password}, function(err, user) {
+        Users.findOne({ '_id': user.username , 'password': user.password}, function(err, user) {
             if (err) throw err;
             console.log(user+"Here")
             if(user!=null){
             req.session.user = user;
+            req.session.user.username = user._id;
             // show the one user
             console.log(user);
-            res.redirect('/Users/view/'+user.username);
+            res.redirect('/Users/view/'+user._id);
             }else{
                 res.render('login', {message: "Invalid credentials!"});
             }
