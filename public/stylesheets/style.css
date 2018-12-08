@@ -9,13 +9,12 @@
 
 
 body {
- 
+    background-image: url("/images/paper.jpg");
     background-size: 100%;
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
     padding-bottom:4.2rem;
-    @background:rgba(0, 0, 0, 0.76);
 }
 
 .intro {
@@ -41,6 +40,23 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.myform{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+    max-width: 500px;
+    }
+
 
 /*
  * -- BASE STYLES --
@@ -64,6 +80,11 @@ label {
     max-width: 100%;
     height: auto;
 }
+
+.mybtn{
+    border-radius:50px;
+    width: 300px;
+    }
 /*
  * -- LAYOUT STYLES --
  * These are some useful classes which I will need
@@ -105,60 +126,6 @@ label {
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
  */
-.pure-button {
-    background-color: #1f8dd6;
-    color: white;
-    padding: 0.5em 2em;
-    border-radius: 5px;
-}
-
-a.pure-button-primary {
-    background: white;
-    color: #1f8dd6;
-    border-radius: 5px;
-    font-size: 120%;
-}
-
-
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
-
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
-.home-menu {
-    background: #2d3e50;
-}
-.pure-menu.pure-menu-fixed {
-    /* Fixed menus normally have a border at the bottom. */
-    border-bottom: none;
-    /* I need a higher z-index here because of the scroll-over effect. */
-    z-index: 4;
-}
-
-.home-menu .pure-menu-heading {
-    color: white;
-    font-weight: 400;
-    font-size: 120%;
-}
-
-.home-menu .pure-menu-selected a {
-    color: white;
-}
-
-.home-menu a {
-    color: #6FBEF3;
-}
-.home-menu li a:hover,
-.home-menu li a:focus {
-    background: none;
-    border: none;
-    color: #AECFE5;
-}
 
 
 /*
@@ -274,15 +241,6 @@ a.pure-button-primary {
         font-size: 16px;
     }
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
-        .home-menu ul {
-            float: right;
-        }
-
     /* We increase the height of the splash-container */
 /*    .splash-container {
         height: 500px;
@@ -305,7 +263,6 @@ a.pure-button-primary {
         border: none;
     }
 
-}
 
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
@@ -318,38 +275,17 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
-.footer1 {
-background: #2d3e50;
-color: white;
-}
 
 
 a{
 text-decoration:none !important;
 }
 
-.myform{
-position: relative;
-display: -ms-flexbox;
-display: flex;
-padding: 1rem;
--ms-flex-direction: column;
-flex-direction: column;
-width: 100%;
-pointer-events: auto;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid rgba(0,0,0,.2);
-border-radius: 1.1rem;
-outline: 0;
-max-width: 500px;
-}
+    
 .tx-tfm{
 text-transform:uppercase;
 }
-.mybtn{
-border-radius:50px;
-}
+ 
 
 .login-or {
 position: relative;
@@ -385,6 +321,9 @@ border: 1px solid lightgrey;
 form .error {
 color: #ff0000;
 }
-#second{display:none;}
 
+#second{
+    display:none;
+}
 
+}

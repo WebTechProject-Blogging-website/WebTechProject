@@ -23,59 +23,48 @@
 
 
  <div class="container">
-        <div class="row">
+    <div class="row">
 			<div class="col-md-5 mx-auto">
-			<div id="first">
-				<div class="myform form ">
-					 <div class="logo mb-3">
-						 <div class="col-md-12 text-center">
-							<br><br><br><h1>Become a Blogger!</h1>
-						 </div>
-					</div>    
-      <div class="header">
+      <br><h1 class="text-center">Become a Blogger!</h1><br>
+				<div class="myform form "> 
+          <div class="header">
           <h4>Sign Up:</h4>
+          </div>
+          <% if(typeof message != 'undefined'){ %>
+              <div class="alert alert-success alert-dismissible">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong><%= message %></strong> 
+              </div>
+          <% } %>
+          <form action="/users/signup" method="POST" id="login">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                      <label for="exampleInputPassword1">Access</label>
+                      <input class="form-control" type="text" name="access" value="admin" readonly>
+              </div>
+              <button type="submit" class=" btn btn-block mybtn tx-tfm" id="bluebtn">Create Account</button>
+                <div class="col-md-12 ">
+                  <div class="login-or">
+                      <hr class="hr-or">
+                      <span class="span-or">or</span>
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <p class="text-center">Got an account? Log In! <a href="/users/login" id="login">Log In here</a></p>
+                </div>
+          </form>
         </div>
-    <% if(typeof message != 'undefined'){ %>
-        <div class="alert alert-success alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong><%= message %></strong> 
-        </div>
-    <% } %>
-        <form action="/users/signup" method="POST" id="login">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                        <label for="exampleInputPassword1">Access</label>
-                        <input class="form-control" type="text" name="access" value="admin" readonly>
-                </div>
-                
-                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Create Account</button>
-        
-		
-		 <div class="col-md-12 ">
-                              <div class="login-or">
-                                 <hr class="hr-or">
-                                 <span class="span-or">or</span>
-                              </div>
-                           </div>
-                         
-                           <div class="form-group">
-                              <p class="text-center">Got an account? Log In! <a href="/users/login" id="login">Log In here</a></p>
-                           </div>
-		</form>
       </div>
-      </div>
-            </div>
-        </div>
-        </div>
-
-
+    </div>
+  </div>
   <% var footer = './footer'; %>
   <%- include(footer) %>
