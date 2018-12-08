@@ -12,7 +12,7 @@
 
 
 body {
-    background-image: url("/images/paper.jpg");
+  
     background-size: 100%;
     line-height: 1.7em;
     color: #454f50;
@@ -35,7 +35,7 @@ body {
 }
 #bluebtn {
     color: white;
-   background-color:rgb(2, 4, 82);
+   background-color: var(--main-bg-color);
 }
 
 * {
@@ -60,7 +60,12 @@ body {
     max-width: 500px;
     }
 
+.header {
+    color: var(--main-bg-color);
+}
 
+    
+}
 /*
  * -- BASE STYLES --
  * Most of these are inherited from Base, but I want to change a few.
