@@ -1,0 +1,119 @@
+
+.bc {
+    
+    background-color: #ECF0F3
+}
+
+	
+	
+
+paragraph { 
+font-size: 20px;
+padding: 20px;
+
+
+} 
+ul.menu {
+    list-style-type: none;
+    margin: 0;        
+    padding: inherit;
+
+    width: 200px;
+    background-color: 	#1C285A;
+	font-weight: 500;
+	
+}
+
+li a.menu {
+    display: block;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    text-decoration: none;
+	
+}
+
+/* Change the link color on hover */
+.menu a:hover {
+    background-color: #CEB97E;
+    color: white;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #CEB97E;
+   color: #152456;
+   text-align: left;
+  
+}
+aside{
+	color: #152456;
+	
+}
+table, th, td {
+    border: 1px solid #CEB97E;
+    color: #152456;
+	
+
+}
+.breadcrumb_color {
+    background-color: #CEB97E;
+    
+    
+    
+}
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #1C285A;
+
+background-color: #1C285A;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a  {
+    
+    color: white;
+    text-decoration: none;
+}
+
+
+ul.breadcrumb li a:hover {
+    color: white;
+    background-color: gray;
+    text-decoration: none;
+}
+
+input{
+	padding-left:50em
+}
+
+
+.msis{
+	background-color:#e6e6ff
+	
+}
+
+.mst{
+	background-color:#d9ffb3
+	
+}
+.phdis{
+	background-color:#ffccff
+	
+}
+.phdcs{
+	background-color:#ffffcc
+	
+}
+img{
+	
+	align-content:center;
+}
+.b{
+    background-color: inherit;
+    font-size: inherit;
+    color: black;
+    
+}
