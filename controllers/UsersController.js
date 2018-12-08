@@ -4,7 +4,7 @@ exports.view =async function(req,res){
     console.log("user");
     user=req.params.username;
     // find all athletes that play tennis
-    Users.findOne({ 'username': user}, function(err, user) {
+    Users.findOne({ '_id': user}, function(err, user) {
         if (err) throw err;
       
         // show the one user
@@ -40,7 +40,7 @@ exports.edit= async function(req,res){
     console.log("user");
     user=req.params.username;
     // find all athletes that play tennis
-    Users.findOne({ 'username': user}, function(err, user) {
+    Users.findOne({ '_id': user}, function(err, user) {
         if (err) throw err;
       
         // show the one user
@@ -68,6 +68,7 @@ exports.updateUser =async function(req,res){
      , function(err, user) {
         if (err) throw err;
         // show the one user
+        username=req.session.user._id;
         console.log(username);
         res.redirect('/users/view/'+username);
      });

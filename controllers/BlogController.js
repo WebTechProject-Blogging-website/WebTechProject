@@ -11,27 +11,58 @@ exports.index = async function(req,res){
 }
 
 exports.view =async function(req,res){
-   
-    user_id=req.params.user_id;
-    Blogs.findOne({ 'user_id': user_id}, function(err, output) {
+    blog_id=req.params.blog_id;
+    Blogs.findOne({ '_id': blog_id}, function(err, output) {
         if (err) throw err;
         console.log(output);
         res.render('Blogs/view',{
-            output: output
+            blog: output
         })
       });
-   
+}
+
+exports.edit =async function(req,res){
+    blog_id=req.params.blog_id;
+    Blogs.findOne({ '_id': blog_id}, function(err, output) {
+        if (err) throw err;
+        console.log(output);
+        res.render('Blogs/edit',{
+            blog: output
+        })
+      });
+}
+
+exports.updateBlog = async function(req,res){
+    console.log("user");
+    blog_id=req.params.blog_id;
+    blog=req.body;
+    // find all athletes that play tennis
+    Blogs.update(
+        { _id: blog_id },
+        {
+          $set: {
+              title: blog["title"],
+              text: blog["text"],
+              signature: blog["signature"],
+              date_time: blog["date_time"]
+          }
+        }
+     , function(err, user) {
+        if (err) throw err;
+        // show the one user
+        res.redirect('/blogs/view/'+blog_id);
+     });
 }
 
 exports.add = async function(req,res){
-    username=req.session.user.username;
+    username=req.session.user._id;
     res.render('Blogs/add',{
         username: username
     });
 }
 
 exports.createBlog = async function(req,res){
-    user_id= req.session.user.username;
+    user_id= req.session.user._id;
     title= req.body.title;
     text= req.body.text;
     location= req.body.location;
