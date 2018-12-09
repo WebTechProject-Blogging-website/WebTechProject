@@ -11,23 +11,23 @@
                 <a href='/blogs/edit/<%- blog["id"] %>' class="btn btn-primary btn-sm active float-right" role="button" aria-pressed="true">Edit Blog</a>
                 <h2 class="title"><%- blog["title"] %></h2>
                 <h5>By:<%- blog["user_id"] %> </h5> <hr>
-                <p>Posted on <%- blog["date_time"] %> &nbsp Location: <%- blog["location"] %></p> <hr>
+                <p><%- blog["date_time"] %> &nbsp |<%- blog["location"] %></p> <hr>
                 <p class="blogcontent"><%- blog["text"] %></p>
 
         </div>
         
         <div class="jumbotron mt-2">
-                <h5 class="header"> Comments:</h5>
-                <% colorScheme=="bg-dark text-white" %>
+                <h5 class="header"> COMMENTS:</h5>
+                <% colorScheme=="bg-secondary text-white" %>
                 <% for (comment in comments){ %>
                     <% currComment=comments[comment] %>
                 <div class='p-3 mb-2 <%- colorScheme %>'>
                     <div class="row mt-2">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12"> <hr>
                                 <b>User: <%- currComment["user_id"] %></b>
-                            </div>
-                            <div class="col-sm-6">
-                                <p><%- currComment["date_time"] %></p>
+                                
+                                <sm class="float-right"><%- currComment["date_time"] %></sm>
+                                <hr>
                             </div>
                     </div>
                     <div class="row mt-2">
@@ -41,10 +41,10 @@
                         </div>
                     </div>
                 </div>
-            <% if(colorScheme=="bg-dark text-white"){ %>
-            <%  colorScheme="bg-white text-dark"; %>
+            <% if(colorScheme=="bg-secondary text-white"){ %>
+            <%  colorScheme="bg-light text-dark"; %>
             <% }else{ %>
-                <%  colorScheme="bg-dark text-white";%>
+                <%  colorScheme="bg-secondary text-white";%>
                 <%  }  %>
 
                 <%      }  %>

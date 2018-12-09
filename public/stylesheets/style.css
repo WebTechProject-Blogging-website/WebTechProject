@@ -8,7 +8,21 @@
 }
 .navbar {
     background-color: rgba(2, 3, 87, 0.904);
-}.jumbotron {
+
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+.admin {
+    background-color: goldenrod;
+}
+
+
+.jumbotron {
     background-color: white;
 }
 
@@ -17,7 +31,7 @@ body {
     background-image: url("/images/paper.jpg");
     background-size: 100%;
     line-height: 1.7em;
-    color: #454f50;
+    color:var(--main-bg-color);
     font-size: 13px;
     padding-bottom:4.2rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -134,7 +148,9 @@ label {
 
     
 .footer-basic-centered{
-	background-color: #292c2f;
+
+    bottom: 0;   
+	background-color: var(--main-bg-color);
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -143,6 +159,7 @@ label {
 	padding: 45px;
     margin-top: 80px;
     
+
 }
 
 .footer-basic-centered .footer-company-motto{
