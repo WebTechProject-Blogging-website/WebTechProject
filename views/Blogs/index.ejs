@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-          <h1 class="header"> View Blogs: </h1>
+          <h1 class="header"> All Blogs: </h1>
             <div class="jumbotron mt-4">
                  <div class="col-md-2">
                     <a class="btn btn-lg" id="bluebtn" href="/Blogs/add" role="button">
@@ -59,16 +59,6 @@
             
                 </tbody>
             </table>
-        <% for (arr_key in records) { %>
-            <h3 class="header"><%= records[arr_key]["title"] %></h3>
-            <p >By: <%= records[arr_key]["user_id"] %></p>
-            <p >Date: <%= records[arr_key]["date_time"] %></p>
-            <div class="row mt-2">
-              <a class="btn" href='/Blogs/view/<%= records[arr_key]["id"] %>' role="button">View</a>
-              <a class="btn" href='/Blogs/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
-            </div>
-            <p><%= records[arr_key]["text"] %></p>
-            <% } %>
             </div>
             </div>
             

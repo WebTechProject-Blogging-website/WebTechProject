@@ -8,6 +8,8 @@
 }
 .navbar {
     background-color: rgba(2, 3, 87, 0.904);
+}.jumbotron {
+    background-color: white;
 }
 
 
@@ -69,9 +71,13 @@ body {
     background-color: white;
     display: flex;
     border: 1px solid rgba(0,0,0,.2);
-    border-radius: 1.1rem;
+    border-radius: 1rem;
 
- 
+
+}
+.commentbox {
+    border: 1px solid rgba(197, 197, 197, 0.801);
+    padding: 2em;
 }
 .column-left {
     float: left;

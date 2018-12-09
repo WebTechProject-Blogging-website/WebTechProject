@@ -3,25 +3,18 @@
 <script src="/javascripts/metaBlog.js"></script>
 <script src="/javascripts/toDataTable.js"></script>
 <div class="container-fluid">
-      <div class="jumbotron mt-4">
-         <div class="header">
-             <div class="row">
-                 <div class="col-sm-10">
-                    <h2> View Blogs: </h2>
-                 </div>
-                 <div class="col-sm-2">
-                    <a class="btn btn-primary btn-lg active" href="/Blogs/add" role="button">Add Blog</a>
-                 </div>
-             </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="header"> View All Users:</h1>
+            <div class="jumbotron mt-4">
              <% if(typeof message != 'undefined'){ %>
                 <div class="alert alert-success alert-dismissible">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong><%= message %></strong> 
                 </div>
             <% } %>
-         </div>
-         <div class="content mt-2">
-                <table id="example" class="table table-striped table-bordered mt-5" cellspacing="20" style="width:100%">
+                <div class="content mt-2">
+                    <table id="example" class="table table-striped table-bordered mt-5" cellspacing="20" style="width:100%">
                         <thead>
                                 <tr>
                                   <th class="th-sm">User
@@ -35,20 +28,20 @@
                                   </th>
                                 </tr>
                         </thead>
-                <tbody>
-            <% for (arr_key in records) { %>
-                    <tr>
-                        <td><%= records[arr_key]["id"] %></td>
-                        <td><%= records[arr_key]["access"] %></td>
-                        <td>
+                        <tbody>
+                         <% for (arr_key in records) { %>
+                            <tr>
+                                <td><%= records[arr_key]["id"] %></td>
+                                <td><%= records[arr_key]["access"] %></td>
+                                <td>
                             <% if(records[arr_key]["access"]!="admin"){ %>
-                              <div class="row mt-2">
-                                  <div class="col">
-                                      <form action='/Users/admin/add/<%= records[arr_key]["id"] %>' method="POST">
-                                        <button type="submit" class="btn btn-success btn-block">Add as Admin</button>
-                                      </form>
-                              </div>
-                              </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <form action='/Users/admin/add/<%= records[arr_key]["id"] %>' method="POST">
+                                            <button type="submit" class="btn btn-success btn-block">Add as Admin</button>
+                                        </form>
+                                    </div>
+                                </div>
                             <% }else{%>
                               <div class="row mt-2">
                                   <div class="col">
@@ -58,32 +51,34 @@
                               </div>
                               </div>
                             <% } %>
-                          <div class="row mt-2">
-                              <div class="col">
-                          <a class="btn btn-primary btn-block" href='/Users/view/<%= records[arr_key]["id"] %>' role="button">View</a>
-                                  </div>
-                          </div>
-                          <div class="row mt-2">
-                              <div class="col">
-                          <a class="btn btn-primary btn-block" href='/Users/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
-                          </div>
-                          </div>
-                          <div class="row mt-2">
-                              <div class="col">
-                                  <form action='/Users/delete/<%= records[arr_key]["id"] %>' method="POST">
-                                    <button type="submit" class="btn btn-danger btn-block">Delete</button>
-                                  </form>
-                          </div>
-                          </div>
-                      </td>
-                    </tr>
-            <% } %>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                <a class="btn btn-primary btn-block" href='/Users/view/<%= records[arr_key]["id"] %>' role="button">View</a>
+                                        </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                <a class="btn btn-primary btn-block" href='/Users/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
+                                </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <form action='/Users/delete/<%= records[arr_key]["id"] %>' method="POST">
+                                            <button type="submit" class="btn btn-danger btn-block">Delete</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </td>
+                             </tr>
+                            <% } %>
             
-                </tbody>
-            </table>
+                            </tbody>
+                    </table>
+                </div>
             </div>
-     </div>
- </div>
+        </div> 
+    </div> 
+</div>
  <% message=undefined %>
 <% var footer = '../footer'; %>
 <%- include(footer) %>
