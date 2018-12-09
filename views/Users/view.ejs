@@ -14,6 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <h1 class="header">Profile:</h1>
             <div class="card">
 
                 <div class="card-body">
@@ -26,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="userData ml-3">
-                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);"><%- username["_id"] %>   </a></h2>
+                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><%- username["_id"] %></h2>
                                 <h6 class="d-block"><a href="javascript:void(0)">5</a> Blog Posts</h6>
                             </div>
                            
@@ -73,9 +74,9 @@
                                         </div>
                                     </div>
                                     <hr />
-                                                                       <div class="col-sm-6">
-                                        <a href="/users/edit/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Change Password</a>
-                                </div>
+                                    <div class="col-sm-6">
+                                        <a href="/users/edit/<%- username['_id'] %>" class="btn btn-sm active" id="bluebtn"role="button" aria-pressed="true">Change Password</a>
+                                    </div>
                                     <hr />
 
                                 </div>

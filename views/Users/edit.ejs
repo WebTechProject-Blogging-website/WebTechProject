@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+            <h1 class="header">Change Password:</h1>
             <div class="card">
 
                 <div class="card-body">
@@ -45,9 +46,8 @@
             <p><%- username["access"] %></p>
         </div>
     </div>
-    <a href="/users/view/<%- username['_id'] %>" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Back to User Profile</a>
-
-    <button type="submit" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Update Account</button>
+    <a href="/users/view/<%- username['_id'] %>" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Back to User Profile</a>
+    <button type="submit" class="btn btn-sm active" id="bluebtn" role="button" aria-pressed="true">Update Account</button>
     
 </form>
     </div>

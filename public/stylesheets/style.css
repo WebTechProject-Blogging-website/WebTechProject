@@ -13,8 +13,17 @@
 
 .title {
     text-transform: uppercase;
+    color: var(--main-bg-color);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
+}
+.blogcontent {
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.commentlist {
+    font-size: 16px;
 }
 
 .admin {
@@ -29,10 +38,11 @@
 
 body {
     background-image: url("/images/paper.jpg");
+    color: black;
     background-size: 100%;
     line-height: 1.7em;
     color:var(--main-bg-color);
-    font-size: 13px;
+    font-size: 16px;
     padding-bottom:4.2rem;
     font-family: Arial, Helvetica, sans-serif;
 }
