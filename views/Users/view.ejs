@@ -10,24 +10,25 @@
 
 
 <div class="container-fluid mt-3">
-    <div class="jumbotron">
-            <header>
+    <div class="jumbotron"> <center>
+            <div class="myform form"> <center> 
+    
+        <header>
+
                     <div class="page-header">
                         <div class="row mt-6">
                             <div class="col-sm-6">
 
                                 
-                            <h1>View User:</h1>
+                            <h3><b>View Profile:<hr></b></h3>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                                <a href="/users/edit/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit User</a>
-                        </div>
+                        
                     </div>
             </header>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Username: </h4>
+                <h5><b>Username: </h5></b>
         </div>
         <div class="col-sm-6">
             <p><%- username["_id"] %></p>
@@ -35,7 +36,7 @@
     </div>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Password: </h4>
+            <h5><b>Password: </b></h5>
         </div>
         <div class="col-sm-6">
             <p><%- username["password"] %></p>
@@ -43,14 +44,16 @@
     </div>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Access: </h4>
+                <h5><b>Access: </b></h4>
         </div>
         <div class="col-sm-6">
             <p><%- username["access"] %></p>
         </div>
+    </div><hr><hr>
+    <div class="col-sm-6">
+            <a href="/users/edit/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Change Password</a>
     </div>
     </div>
-</div>
-
+</div></div>
 <% var footer = '../footer'; %>
 <%- include(footer) %>
