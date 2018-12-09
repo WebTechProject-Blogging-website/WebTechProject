@@ -7,53 +7,96 @@
 
 
 
+<br>
 
 
-<div class="container-fluid mt-3">
-    <div class="jumbotron"> <center>
-            <div class="myform form"> <center> 
-    
-        <header>
 
-                    <div class="page-header">
-                        <div class="row mt-6">
-                            <div class="col-sm-6">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
 
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                        <div class="d-flex justify-content-start">
+                            <div class="image-container">
+                                <img src="https://cdn.worldvectorlogo.com/logos/pittsburgh-panthers.svg" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                                <div class="middle">
+                                    <input type="file" style="display: none;" id="profilePicture" name="file" />
+                                </div>
+                            </div>
+                            <div class="userData ml-3">
+                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);"><%- username["_id"] %>   </a></h2>
+                                <h6 class="d-block"><a href="javascript:void(0)">5</a> Blog Posts</h6>
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Basic Info</a>
+                                </li>
+                               
+                            </ul>
+                            <div class="tab-content ml-1" id="myTabContent">
+                                <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                    
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Username</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <%- username["_id"] %>                                        </div>
+                                    </div>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Password</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <%- username["password"] %>                                          </div>
+                                    </div>
+                                    <hr />
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Access</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            <%- username["access"] %>                                          </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                                                       <div class="col-sm-6">
+                                        <a href="/users/edit/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Change Password</a>
+                                </div>
+                                    <hr />
+
+                                </div>
                                 
-                            <h3><b>View Profile:<hr></b></h3>
                             </div>
                         </div>
-                        
                     </div>
-            </header>
-    <div class="row mt-2">
-        <div class="col-sm-6">
-                <h5><b>Username: </h5></b>
-        </div>
-        <div class="col-sm-6">
-            <p><%- username["_id"] %></p>
+
+
+                </div>
+
+            </div>
         </div>
     </div>
-    <div class="row mt-2">
-        <div class="col-sm-6">
-            <h5><b>Password: </b></h5>
-        </div>
-        <div class="col-sm-6">
-            <p><%- username["password"] %></p>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-sm-6">
-                <h5><b>Access: </b></h4>
-        </div>
-        <div class="col-sm-6">
-            <p><%- username["access"] %></p>
-        </div>
-    </div><hr><hr>
-    <div class="col-sm-6">
-            <a href="/users/edit/<%- username['_id'] %>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Change Password</a>
-    </div>
-    </div>
-</div></div>
+</div>
+
+
+
+
+
+
+
 <% var footer = '../footer'; %>
 <%- include(footer) %>
