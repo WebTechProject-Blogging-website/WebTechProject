@@ -10,25 +10,10 @@
     background-color: rgba(2, 3, 87, 0.904);
 
 }
-
-.title {
-    text-transform: uppercase;
-    color: var(--main-bg-color);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    
-}
-.blogcontent {
-    color:black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-}
-.commentlist {
-    font-size: 16px;
-}
-
 .admin {
     background-color: goldenrod;
 }
+
 
 
 .jumbotron {
@@ -63,7 +48,6 @@ body {
 #bluebtn {
     color: white;
     background-color: var(--main-bg-color);
-
 }
 
 #bluebtn:hover{
@@ -429,58 +413,73 @@ a.pure-button-primary {
     }
 }
 
-.footer1 {
-    background: #2d3e50;
-    color: white;
+    .footer1 {
+        background: #2d3e50;
+        color: white;
+        }
+    
+    a{
+    text-decoration:none !important;
+    }
+
+        
+    .tx-tfm{
+    text-transform:uppercase;
     }
     
-a{
-text-decoration:none !important;
+
+    .login-or {
+    position: relative;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+    .span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+    }
+    .hr-or {
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    }
+    .google {
+    color:#666;
+    width:100%;
+    height:40px;
+    text-align:center;
+    outline:none;
+    border: 1px solid lightgrey;
+    }
+    form .error {
+    color: #ff0000;
+    }
+
+    #second{
+        display:none;
+    }
+
 }
 
+.title {
+    text-transform: uppercase;
+    color: var(--main-bg-color);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
-.tx-tfm{
-text-transform:uppercase;
 }
- 
-
-.login-or {
-position: relative;
-color: #aaa;
-margin-top: 10px;
-margin-bottom: 10px;
-padding-top: 10px;
-padding-bottom: 10px;
+.blogcontent {
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 }
-.span-or {
-display: block;
-position: absolute;
-left: 50%;
-top: -2px;
-margin-left: -25px;
-background-color: #fff;
-width: 50px;
-text-align: center;
-}
-.hr-or {
-height: 1px;
-margin-top: 0px !important;
-margin-bottom: 0px !important;
-}
-.google {
-color:#666;
-width:100%;
-height:40px;
-text-align:center;
-outline:none;
-border: 1px solid lightgrey;
-}
-form .error {
-color: #ff0000;
-}
-
-#second{
-    display:none;
-}
-
+.commentlist {
+    font-size: 16px;
 }

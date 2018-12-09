@@ -43,13 +43,13 @@
                         <td>
                           <div class="row mt-2">
                               <div class="col">
-                          <a class="btn btn-primary btn-block" href='/Blogs/view/<%= records[arr_key]["id"] %>' role="button">View</a>
+                          <a class="btn btn-warning btn-block" href='/Blogs/view/<%= records[arr_key]["id"] %>' role="button">View</a>
                                   </div>
                           </div>
                          <% if(records[arr_key]["user_id"]==user._id){ %>
                           <div class="row mt-2">
                               <div class="col">
-                          <a class="btn btn-primary btn-block" href='/Blogs/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
+                          <a class="btn btn-block" id="bluebtn" href='/Blogs/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
                           </div>
                           </div>
                          <% } %>
