@@ -4,7 +4,12 @@
    <p class="footer-company-motto">PANTHER BLOG</p>
 
    <p class="footer-links">
-      <a href="/">Home</a>
+         <% if(typeof user !="undefined"){ %>
+            <a href="/users/login">Home</a>
+        <% }
+        else{ %>
+         <a href="/">Home</a>
+        <% } %>
       ·
       <a href="/Blogs">Blog</a>
       ·

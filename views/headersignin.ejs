@@ -18,12 +18,6 @@
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
 <body>
-    <% if(typeof user !="undefined"){ %>
-      <%  if(user.access=="admin"){ %>
-          <% var header = './Admin/header'; %>
-          <%- include(header) %>
-      <% } %>
-    <% } %>
         <nav class="navbar navbar-expand-lg navbar-dark ">
           <img id="logo" src="/images/logo.png" alt="logo">
                 <a class="navbar-brand" href="/">Panther Blog</a>
