@@ -8,7 +8,6 @@ var commentsSchema = new Schema({
     blog_id: ObjectId,
     user_id: String,
     date_time: Date,
-    title: String,
     text: String,
 }, { collection: 'Comments' });
 var Comments = mongoose.model('Comments', commentsSchema );
