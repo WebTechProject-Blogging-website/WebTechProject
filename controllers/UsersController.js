@@ -1,13 +1,12 @@
 var Users= require('../models/users');
-
+/**
+ * View user 
+ */
 exports.view =async function(req,res){
     console.log("user");
     user=req.params.username;
-    // find all athletes that play tennis
     Users.findOne({ '_id': user}, function(err, user) {
         if (err) throw err;
-      
-        // show the one user
         console.log(user);
         res.render('Users/view',{
             username: user
@@ -15,6 +14,9 @@ exports.view =async function(req,res){
       });
    
 }
+/**
+ * Delete a user
+ */
 exports.admin = async function(req,res){
     id=req.params.id;
     Users.find({},function(err, output) {
@@ -38,7 +40,9 @@ exports.admin = async function(req,res){
         })
       });
 }
-
+/**
+ * Create a user 
+ */
 exports.createUser = async function(req,res){
     username=req.body.username;
     password=req.body.password;
@@ -51,14 +55,15 @@ exports.createUser = async function(req,res){
     Users.create({_id: username, password: password,access: "user"}, function(err,result){
         if(err==null){
             err="Successfully created user: "+username;
-            //mongoose.connection.close();
         }
         res.render('signup',{
             message:err
         });
     });
 }
-
+/**
+ * Edit user details 
+ */
 exports.edit= async function(req,res){
     console.log("user");
     user=req.params.username;
@@ -74,7 +79,9 @@ exports.edit= async function(req,res){
       });
    
 }
-
+/**
+ * Update user details 
+ */
 exports.updateUser =async function(req,res){
     console.log("user");
     username=req.body.username;
@@ -84,22 +91,25 @@ exports.updateUser =async function(req,res){
         {
           $set: {
             password: password
-            // Mongoose will add `updatedAt`
           }
         }
      , function(err, user) {
         if (err) throw err;
-        // show the one user
         username=req.session.user._id;
         console.log(username);
         res.redirect('/users/view/'+username);
      });
    
 }
+/**
+ * Re-direct to signup page 
+ */
 exports.signup = async function(req,res){
     res.render('signup');
 }
-
+/**
+ * Add an admin user 
+ */
 exports.addAdmin = async function(req,res){
     console.log("user");
     username=req.params.id;
@@ -108,19 +118,18 @@ exports.addAdmin = async function(req,res){
         {
           $set: {
             access: "admin"
-            // Mongoose will add `updatedAt`
           }
         }
      , function(err, user) {
         if (err) throw err;
-        // show the one user
-        //username=req.session.user._id;
         req.body.message="Admin added "+username;
         console.log(username);
         exports.admin(req,res);
      });
 }
-
+/**
+ * Remove an admin user 
+ */
 exports.removeAdmin = async function(req,res){
     username=req.params.id;
     Users.update(
@@ -128,19 +137,18 @@ exports.removeAdmin = async function(req,res){
         {
           $set: {
             access: "user"
-            // Mongoose will add `updatedAt`
           }
         }
      , function(err, user) {
         if (err) throw err;
-        // show the one user
-        //username=req.session.user._id;
         req.body.message="Admin removed "+username;
         console.log(username);
         exports.admin(req,res);
      });
 }
-
+/**
+ * Remove a user 
+ */
 exports.delete= async function(req,res){
     username=req.params.id;
     req.params.success="not-success";
@@ -152,8 +160,6 @@ exports.delete= async function(req,res){
         { _id: username }
      , function(err, user) {
         if (err) throw err;
-        // show the one user
-        //username=req.session.user._id;
         req.body.message="Deleted User: "+username;
         console.log(username);
         exports.admin(req,res);

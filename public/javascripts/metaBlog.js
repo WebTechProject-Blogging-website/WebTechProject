@@ -1,3 +1,4 @@
+//To fetch current location
 $.ajax({
     url: "https://geoip-db.com/jsonp",
     jsonpCallback: "callback",
@@ -9,7 +10,7 @@ $.ajax({
 var d = new Date();
 var n = d.toISOString();
 document.getElementById("date").value = n;
-
+//validate Form after submittion
 function validateForm() {
 var title = document.forms["addBlog"]["title"].value;
 var text= document.forms["addBlog"]["text"].value;

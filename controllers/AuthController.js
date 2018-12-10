@@ -27,7 +27,6 @@ exports.authenticate=  async function(req,res){
             req.session.user = user;
             req.app.locals.user=req.session.user;
             req.session.user.username = user._id;
-            // show the one user
             console.log(user);
             res.redirect('/Users/view/'+user._id);
             }else{

@@ -1,7 +1,8 @@
+//Fetch system date
 var d = new Date();
 var n = d.toISOString();
 document.getElementById("date").value = n;
-
+//validate Form
 function validateForm() {
     var title = document.forms["editBlog"]["title"].value;
     var text= document.forms["editBlog"]["text"].value;
