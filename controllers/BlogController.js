@@ -30,14 +30,14 @@ exports.view =async function(req,res){
             res.render('Blogs/view',{
                 blog: result["blog"],
                 comments: result["comments"],
-                user: req.session.user._id,
+                curruser: req.session.user._id,
                 message: "Comment Successful"
             })
         }
         res.render('Blogs/view',{
             blog: result["blog"],
             comments: result["comments"],
-            user: req.session.user._id,
+            curruser: req.session.user._id,
             message: "Add a comment!"
         })
       });
