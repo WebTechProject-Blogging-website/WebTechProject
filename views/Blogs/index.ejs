@@ -30,6 +30,9 @@
                                   <th class="th-sm">Location
                                     <i class="fa fa-sort float-right" aria-hidden="true"></i>
                                   </th>
+                                  <th class="th-sm">
+                                    <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                                  </th>
                                 </tr>
                         </thead>
                 <tbody>
@@ -39,6 +42,9 @@
                         <td><%= records[arr_key]["title"] %></td>
                         <td><%= records[arr_key]["date_time"] %></td>
                         <td><%= records[arr_key]["location"] %></td>
+                        <td><form action="/blogs/view/<%= records[arr_key]["user_id"] %></form>">
+                          <input type="submit" value="View" />
+                      </form></td>
                     </tr>
             <% } %>
             
@@ -47,6 +53,9 @@
             </div>
      </div>
  </div>
+<script>
+console.log("<%= JSON.stringify(records) %>")
+</script>
 
 <% var footer = '../footer'; %>
 <%- include(footer) %>

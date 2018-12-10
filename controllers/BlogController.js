@@ -13,9 +13,9 @@ exports.index = async function(req,res){
 exports.view =async function(req,res){
    
     user_id=req.params.user_id;
-    Blogs.findOne({ 'user_id': user_id}, function(err, output) {
-        if (err) throw err;
+    Blogs.find({}, function(err, output) {
         console.log(output);
+        if (err) throw err;
         res.render('Blogs/view',{
             output: output
         })

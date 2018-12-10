@@ -7,5 +7,5 @@ router.get('/view/:user_id',auth.isAuthenticated, blogs.view);
 router.get('/add',auth.isAuthenticated, blogs.add);
 router.post('/add',auth.isAuthenticated, blogs.createBlog);
 router.get('/',auth.isAuthenticated, blogs.index);
-
+router.get('/view',auth.isAuthenticated,blogs.view)
 module.exports = router;
