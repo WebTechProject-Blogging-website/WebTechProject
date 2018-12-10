@@ -68,7 +68,7 @@ exports.updateBlog = async function(req,res){
               title: blog["title"],
               text: blog["text"],
               signature: blog["signature"],
-              date_time: blog["date_time"]
+              date_time: blog["date"]
           }
         }
      , function(err, user) {
