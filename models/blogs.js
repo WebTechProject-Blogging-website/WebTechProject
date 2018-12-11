@@ -4,16 +4,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var blogSchema = new Schema({
-    _id: Number,
     user_id: String,
-    category: [String],
     title: String,
     text: String,
     location: String,
     date_time: Date,
     signature: String,
-    image_url: [String],
-    view_count: String,
 }, { collection: 'Blogs' });
 var Blogs = mongoose.model('Blogs', blogSchema );
 

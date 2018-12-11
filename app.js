@@ -9,6 +9,7 @@ var multer= require('multer');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var blogsRouter = require('./routes/blogs');
+var commentsRouter = require('./routes/comments') 
 var app = express();// app
 //Import the mongoose module
 
@@ -33,10 +34,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({secret: "keyboard cat"}));
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
+app.use('/comments', commentsRouter);
+//app.use(express.static(__dirname + '/public'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

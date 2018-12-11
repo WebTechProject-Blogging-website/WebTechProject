@@ -1,0 +1,71 @@
+<!--HomeBlogPostPage-->
+<% var header = '../headersignout'; %>
+<%- include(header) %>
+<script src="/javascripts/metaBlog.js"></script>
+<script src="/javascripts/toDataTable.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+          <h1 class="header"> All Blogs: </h1>
+            <div class="jumbotron mt-4">
+                 <div class="col-md-2">
+                    <a class="btn btn-lg" id="bluebtn" href="/Blogs/add" role="button">
+                      <i class="fas fa-plus"></i> Add New Blog Post</a>
+                 </div>
+  
+              <div class="content">
+                <table id="example" class="table table-striped mt-5" cellspacing="10">
+                    <thead>
+                            <tr>
+                              <th class="th-sm">Title
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                              </th>
+                              <th class="th-sm">Author
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                              </th>
+                              <th class="th-sm">Date
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                              </th>
+                              <th class="th-sm">Location
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                              </th>
+                              <th class="th-sm">Actions
+                                <i class="fa fa-sort float-right" aria-hidden="true"></i>
+                              </th>
+                            </tr>
+                    </thead>
+                <tbody>
+            <% for (arr_key in records) { %>
+                    <tr>
+                        <td><%= records[arr_key]["title"] %></td>
+                        <td><%= records[arr_key]["user_id"] %></td>
+                        <td><%= records[arr_key]["date_time"] %></td>
+                        <td><%= records[arr_key]["location"] %></td>
+                        <td>
+                          <div class="row mt-2">
+                              <div class="col">
+                          <a class="btn btn-warning btn-block" href='/Blogs/view/<%= records[arr_key]["id"] %>' role="button">View</a>
+                                  </div>
+                          </div>
+                         <% if(records[arr_key]["user_id"]==user._id){ %>
+                          <div class="row mt-2">
+                              <div class="col">
+                          <a class="btn btn-block" id="bluebtn" href='/Blogs/edit/<%= records[arr_key]["id"] %>' role="button">Edit</a>
+                          </div>
+                          </div>
+                         <% } %>
+                      </td>
+                    </tr>
+            <% } %>
+            
+                </tbody>
+            </table>
+            </div>
+            </div>
+            
+        </div>
+     </div>
+ </div>
+
+<% var footer = '../footer'; %>
+<%- include(footer) %>

@@ -1,2 +1,23 @@
+<!--FooterPage-->
+<footer class="footer-basic-centered">
+
+   <p class="footer-company-motto">PANTHER BLOG</p>
+
+   <p class="footer-links">
+         <% if(typeof user !="undefined"){ %>
+            <a href="/users/login">Home</a>
+        <% }
+        else{ %>
+         <a href="/">Home</a>
+        <% } %>
+      ·
+      <a href="/Blogs">Blog</a>
+      ·
+      <a href="/contact">Contact</a>
+   </p>
+   <p class="footer-company-name">PANTHER BLOG &copy; 2018</p>
+</footer>
+
 </body>
+
 </html>

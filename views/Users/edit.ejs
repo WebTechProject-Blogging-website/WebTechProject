@@ -1,45 +1,60 @@
-<% var header = '../header'; %>
+<!--EditUserPage-->
+<% var header = '../headersignout'; %>
 <%- include(header) %>
-        
-<div class="container-fluid mt-3">
-    <div class="jumbotron">
-            <header>
-                    <div class="page-header">
-                        <div class="row mt-6">
-                            <div class="col-sm-6">
-                            <h1>Edit User:</h1>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="header">Change Password:</h1>
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                        <div class="d-flex justify-content-start">
+                            <div class="image-container">
+                                                          <h3>Edit User:</h3>
                             </div>
                         </div>
+                        <br>
                     </div>
             </header>
-    <form action="/users/edit/<%= id %>" method="POST" id="edit">
+    <form action="/users/edit/<%= username['_id'] %>" method="POST" id="edit">
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Username: </h4>
-        </div>
+            <label style="font-weight:bold;">Username</label>        </div>
         <div class="col-sm-6">
-            <p><%- username["username"] %></p>
+        <div class="form-group">
+                <input type="text" class="form-control" id="username" name="username" value="<%- username['id'] %>" readonly>
+        </div>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Password: </h4>
-        </div>
+            <label style="font-weight:bold;">Password</label>        </div>
         <div class="col-sm-6">
-            <p>><%- username["password"] %></p>
+        <div class="form-group">
+                <input type="text" class="form-control" id="password" name="password" value="<%- username['password'] %>">
+        </div>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-sm-6">
-            <h4>Access: </h4>
+                <label style="font-weight:bold;">Access</label>
         </div>
         <div class="col-sm-6">
             <p><%- username["access"] %></p>
         </div>
     </div>
-    </form>
+    <a href="/users/view/<%- username['_id'] %>" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Back to User Profile</a>
+    <button type="submit" class="btn btn-sm active" id="bluebtn" role="button" aria-pressed="true">Update Account</button>
+    
+</form>
     </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <% var footer = '../footer'; %>
 <%- include(footer) %>

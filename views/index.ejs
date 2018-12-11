@@ -1,11 +1,63 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<!--Index Page-->
+<% var header = './headersignin'; %>
+<%- include(header) %>
+<div class="splash-container">
+   <div class="splash">
+      <h1 class="splash-head">Welcome to PantherBlog!</h1>
+        <h3 class="intro">Read, Write, Blog</h3>
+            <div class="row homebutton">
+              <a href="/users/signup" id="bluebtn" class="btn btn-block">Get Started</a>
+            </div>
+              <div class="row homebutton">
+              <a href="/users/login" class="btn btn-warning btn-block">Login</a> 
+              </div>
+              <div class="row homebutton">
+              <a href="/users/login" class="btn btn btn-light btn-block">View Blogs</a> 
+            </div>
+       </div>
+  </div>
+<div class="content-wrapper">
+   <div class="content">
+      <hr>
+      <h2 class="content-head is-center">SHARE YOUR PERSONAL STORY!</h2>
+      <div class="row">
+         <div class="col-md-6">
+            <h1 class="text-center">Viewers</h1>    <hr><hr>
+            <p class="features">Read blogs from sports to food, travel, and more!</p><br>
+            <p>Features include</p>
+            <ul>
+               <li>
+                  Stay up-to-date with the trendiest posts
+               </li>
+               <li>
+                  Like someone's post? Give them comments and suggestions
+               </li>
+            </ul>
+            </p>
+            <div class="text-center">
+            <a href="/users/login" class="btn mybtn"  id="bluebtn">View Blogs</a>
+            </div>   <hr><hr>
+         </div>
+         <div class="col-md-6">
+            <h1 class="text-center">Bloggers</h1>    <hr><hr>
+            <p class="">Do you want to share your personal story? Review restauraunts? Suggest best travel spots? 
+               PantherBlog is here for you.
+            </p>
+            <p class="features">Features include
+            <ul>
+               <li>
+                  Everything Viewers get
+               </li>
+               <li>
+                  Add, edit, and delete posts
+            </ul>
+               </li>
+            <div class="text-center">
+            <a href="/users/signup" class="btn mybtn"  id="bluebtn" >Are you Ready to Blog?</a>
+            </div>
+            <hr><hr>
+         </div> 
+      </div>
+   </div>   
+  <% var footer = './footer'; %>
+  <%- include(footer) %>

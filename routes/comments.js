@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var comments = require('../controllers/CommentsController');
 var auth = require('../controllers/AuthController');
 
-/* GET users listing. */
-
-/** */
-//router.get('/', users.index);
-router.get('/', auth.login);
-router.post('/', auth.authenticate);
+router.post('/add/:blog_id',auth.isAuthenticated, comments.add);
 
 module.exports = router;
